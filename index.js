@@ -61,7 +61,7 @@ app.post("/shorten", async (req,res)=>{
 app.get("/:seq" ,async (req,res)=>{
 
     let shortened = req.params.seq;
-    let dbres3 = await pool.query("SELECT original FROM shortened_urls WHERE shortened = $1",[" "+shortened])
+    let dbres3 = await pool.query("SELECT original FROM shortened_urls WHERE shortened = $1",[shortened])
     console.log(dbres3);
 
     if(dbres3.rows[0]!=undefined)
